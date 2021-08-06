@@ -1,14 +1,14 @@
-#include <stdio.h>
+#include<stdio.h>
+int b = 3;
+void func(int* a){
+    a = &b;
+    printf("(func)a = %d\n", *a);
+}
+
 int main(){
     int a = 1;
-    int *ptr = &a;
-    int **ptrptra = &ptr;
-    printf("%p %p %d\n", ptrptra, ptr, a);
-    printf("%p, %p, %p\n", &ptrptra, &ptr, &a);
+    printf("(main)init a = %d\n", a);
+    func(&a);
+    printf("(main)final a = %d\n", a);
     return 0;
 }
-/* variable    value       pointer   
-      a          1         0061FEC8
-     ptr      0061FEC8     0061FEC4
-   ptrptra    0061FEC4     0061FEC0
-*/ 
